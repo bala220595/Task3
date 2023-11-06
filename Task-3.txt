@@ -1,0 +1,433 @@
+Task-3
+
+1.code:
+
+package org.encap;
+
+public class Person {
+	//data member
+
+	private String name;
+	private int age;
+	
+	// creating the constructor
+	
+	public Person (String name,int age)
+	{
+		System.out.println("constructor for the class person is created...");
+		this.name=name;
+		this.age=age;
+	}
+
+	//getter method
+	public String getName() {
+		return name;
+	}
+	
+	public int getage() {
+		return age;
+	}
+	
+    public static void main(String[]args) {
+    	
+    	Person P1=new Person("Balaji",27);
+    }
+}
+
+Output:
+
+constructor for the class person is created...
+
+
+2.CODE:
+
+package org.encap;
+
+public class Employee1 {
+	//data member
+	
+	private static int id;
+	public static String name;
+	private static int salary;
+	private static int percent;
+	
+	//constructor
+	
+	public Employee1 (int id, String name, int salary, int percent)
+	{
+		Employee1.id=id;
+		Employee1.name=name;
+		Employee1.salary=salary;
+		Employee1.percent=percent;
+	}
+	
+//	getter method
+	
+	public int getid() 
+	{
+		return id;
+	}
+	
+	public String getname()
+	{
+		return name;
+	}
+	
+	public int getsalary()
+	{
+		return salary;
+	}
+	
+	public int getPercent() {
+		return percent;
+	}
+
+	
+	//setter method
+	
+	public void setid(int id)
+	{
+		Employee1.id=id;
+	}
+	
+	public void setname(String name)
+	{
+		Employee1.name=name;
+	}
+	
+	public void setsalary(int salary)
+	{
+		Employee1.salary=salary;
+	}
+	
+	public void setPercent(int percent) {
+		Employee1.percent = percent;
+	}
+
+	
+	//method
+	
+	public void newsalary(int percentbonus)
+	{
+		
+         salary=salary+percentbonus;
+         System.out.println("salary updated by specified percentage"+salary);
+		
+	}
+	
+	
+
+	public static void main(String[] args) {
+
+		Employee1 emp1=new Employee1(id, name,salary,percent);
+		
+		emp1.setid(12345);
+		emp1.setname("balaji");
+		emp1.setsalary(55000);
+		emp1.setPercent(5000);
+		
+		System.out.println("employee id is"+emp1.getid());
+		System.out.println("name of employee is"+emp1.getname());
+		System.out.println("salary of the employee is "+emp1.getsalary());
+		
+		emp1.newsalary(50000);
+		
+
+	}	
+	
+}
+
+OUTPUT:
+
+employee id is12345
+name of employee isbalaji
+salary of the employee is 55000
+salary updated by specified percentage105000
+
+3.CODE:
+
+package org.encap;
+
+public class Circle {
+	//data member
+	
+	 public static int radius;
+	 public static double pie;
+	 
+	//constructor with no arguments and two arguments
+	
+	public Circle ()//no argument constructor
+	{
+		
+	}
+	
+	public Circle (int radius,double pie)//two argument constructor
+	{
+		this.radius=radius;
+		this.pie=pie;
+	}
+	
+	//setter method
+	
+		public void setradius(int radius)
+		{
+			this.radius=radius;
+		}
+		
+		public void setpie(double pie)
+		{
+			this.pie=pie;
+		}
+		
+		//getter method
+		
+			public int getradius()
+			{
+				return radius;
+			}
+			
+			public double getpie()
+			{
+				return pie;
+			}
+
+			public void circumference(double f)
+			{
+				f=2*this.radius*this.pie;
+				System.out.println("circumference of the circle"+f);
+			}
+
+	public static void main(String[] args) {
+
+		Circle cir=new Circle();
+		
+		cir.setradius(5);
+		cir.setpie(3.14);
+		
+		
+		System.out.println("circumference of circle"+cir.getradius());
+		System.out.println("circumference of circle"+cir.getpie());
+		
+		cir.circumference(2*cir.radius*cir.pie);
+
+	
+
+	}
+}
+
+OUTPUT:
+
+circumference of circle5
+circumference of circle3.14
+circumference of the circle31.400000000000002
+
+4.code:
+
+package org.encap;
+
+public class Account {
+	//data member
+	private double balance;
+	private int accountnumber;
+	
+	//creating constructor
+	
+	public Account ()
+	{
+		System.out.println("Constructor with no argument");
+	}
+	
+	public Account (double balance,int accountnumber) 
+	{
+		System.out.println("Constructor with 2 arguments");
+		this.balance=balance;
+		this.accountnumber=accountnumber;
+	}
+	
+	
+	//setter method
+	
+	public void setbalance(double balance)
+	{
+		this.balance=balance;
+	}
+	
+	public void setaccountnumber(int accountnumber)
+	{
+		this.accountnumber=accountnumber;
+	}
+	
+	//getter method
+	
+		public double getbalance()
+		{
+			return balance;
+		}
+		
+		public int getaccountnumber()
+		{
+			return accountnumber;
+		}
+		
+	public void deposit(double amount)
+	{
+		if (amount>0) {
+			balance=balance+amount;
+			System.out.println(amount+"deposited . Current balance" +balance );
+		}
+			else {
+				System.out.println("invalid amount");
+			}
+		}
+	
+	public void withdraw(double amount)
+	{
+		if (amount>0&& balance>=amount) {
+			balance=balance-amount;
+			System.out.println(amount+"withdrawn . Current balance" +balance );
+		}
+			else {
+				System.out.println("invalid amount");
+			}
+		}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Account acc=new Account();
+		
+		Account acc1 = new Account();
+		
+		System.out.println("this is 2 argument constructor");
+		
+		acc1.setbalance(1000.0);
+		acc1.setaccountnumber(12345);
+		
+		
+		System.out.println("balance :"+acc1.getbalance());
+		System.out.println("accountnumber :"+acc1.getaccountnumber());
+		
+		acc1.deposit(500.0);
+		acc1.withdraw(200.0);
+	}
+
+}
+
+OUTPUT:
+
+Constructor with no argument
+Constructor with no argument
+this is 2 argument constructor
+balance :1000.0
+accountnumber :12345
+500.0deposited . Current balance1500.0
+200.0withdrawn . Current balance1300.0
+
+5.CODE:
+
+package org.teapreparation;
+
+abstract public class Tea
+{
+	
+	 abstract public void preparetea();
+     abstract public void addmilk();
+     abstract public void addsugar();
+
+
+	public static void main(String[] args) {
+		
+	   System.out.println("Tea preparation method");
+		
+		
+	}
+}
+
+6.CODE:
+
+package org.teapreparation;
+
+public class Blacktea {
+	
+	//data member
+	
+	public String teapowder;
+	public String hotwater;
+	public String sugar;
+	
+	//constructor
+	
+	public Blacktea (String teapowder,String hotwater,String sugar)
+	{
+		this.teapowder=teapowder;
+		this.hotwater=hotwater;
+		this.sugar=sugar;
+	}
+	
+	//method
+	
+	public void Ingredients (String preparation)
+	{
+		preparation=teapowder+hotwater+sugar;
+	}
+	
+
+}
+
+package org.teapreparation;
+
+public class Greentea extends Blacktea {
+
+	public Greentea(String teapowder, String hotwater, String sugar) {
+		super(teapowder, hotwater, sugar);
+		// TODO Auto-generated constructor stub
+//	}
+	
+
+	//constructor
+	
+	public Greentea (String teapowder,String hotwater,String sugar)
+	{
+		this.teapowder=teapowder;
+		this.hotwater=hotwater;
+		this.sugar=sugar;
+	}
+	
+	//method
+	
+	public void Ingredients (String preparation)
+	{
+		preparation=teapowder+hotwater+sugar;
+	}
+	
+
+}
+
+package org.teapreparation;
+
+public class Herbaltea extends Blacktea {
+
+//	public Herbaltea(String teapowder,String hotwater, String sugar) {
+		super(teapowder, hotwater, sugar);
+		// TODO Auto-generated constructor stub
+//	}
+	
+
+	//constructor
+	
+	public Herbaltea (String teapowder,String hotwater,String sugar)
+	{
+		this.teapowder=teapowder;
+		this.hotwater=hotwater;
+		this.sugar=sugar;
+	}
+	
+	//method
+	
+	public void Ingredients (String preparation)
+	{
+		preparation=teapowder+hotwater+sugar;
+	}
+	
+
